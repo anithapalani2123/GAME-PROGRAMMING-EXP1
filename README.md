@@ -1,121 +1,62 @@
 # GAME-PROGRAMMING-EXP1
-# EXP 03 - THIRD PERSON CHARACTER MESH:
+# EXP 01 - EFFECTS IN UNREAL
 
 ###### NAME: ANITHA P
 ###### REG NO: 212221240004
 
 ## AIM:
 
-1. Import the animation assets: Obtain the animation files for jump, walk, and idle in a compatible format such as FBX or BVH. To import the animations, go to the Content Browser panel in Unreal Engine, right-click in the desired folder, and select Import 
+To Implement various effects in a material such as emissive, roughness, and metallic properties in Unreal Engine.
 
-2. Create a Separate folder and Import the Animations to avoid any chaos 
+## PROCEDURE:
 
-3. Create an animation blueprint: In Unreal Engine, animation blueprints are used to control character animations. To create a new animation blueprint, follow these steps: 
-    a. Right-click in the folder where you imported the mesh and select Create > Animation > Animation Blueprint. 
-    
-    b. In the Animation Blueprint Editor, click on the Event Graph tab. 
-    
-    c. Drag the new character mesh from the Content Browser and drop it onto the graph. 
-    
-    d. Connect the Output Pose pin of the mesh node to the Final Animation Pose pin of the Final Animation Pose node. 
-    
-    e. Save the animation blueprint. 
-    
-4. Open the animation blueprint: Open the animation blueprint you created for your character in the Animation Blueprint Editor. 
+1. Right-click in the content browser and choose material.  Rename the material and double-click to open it.
 
-5. Create animation slots: Animation slots help organize different animations and control their blending. To create animation slots, follow these steps: 
-    a. In the AnimGraph tab of the Animation Blueprint Editor, right-click in the graph and select Add State Machine > Animation Layer. 
-    
-    b. Double-click the newly created animation layer to open it. 
-    
-    c. Right-click in the graph of the animation layer and select Add State Machine. d. Double-click the newly created state machine to open it. 
-    
-    e. Right-click in the graph of the state machine and select Add State. 
-    
-    f. Rename the state to "Jump" and repeat steps e and f to create states for "Walk" and "Idle".
-    
-6. Add animation assets to states: In each state, you will assign the corresponding animation assets. To add animation assets to the states, follow these steps: 
-    a. Double-click the "Jump" state to open it. 
+2. Right-click in the working space and search for constants. In constant choose constant vector 
 
-    b. Right-click in the graph and select Add State Result. 
+3. After this double click on the constant vector 4 and edit the colour using the colour
+picker.
 
-    c. Drag and drop the jump animation asset onto the graph. 
+4. After adjusting the colour click okay and save it.
 
-    d. Connect the Result node to the jump animation asset.
+5. They join the output of the constant vector 4 to the base colour.
 
-    e. Repeat steps a to d for the "Walk" and "Idle" states, assigning the appropriate animation assets. 
+6. Create a single constant using step 3 and adjust its value of it using detail panel by
+adjusting the value.
 
-7. Create required Variables for the state’s like “ISJUMP”, “SPEED”. 
+7. And you can apply this constant value to metallic, roughness, emissive colour etc..
 
-8. Set up transition rules: Transition rules determine when the character transitions between different animations. To set up transition rules, follow these steps: 
-    a. Double-click the "Jump" state to open it. 
-    
-    b. Right-click in the graph and select Add Transition Rule. 
-    
-    c. Drag the transition rule from the "Jump" state to the "Idle" state. 
-    
-    d. Repeat steps a to c for the "Walk" state, creating transitions from "Idle" to "Walk" and from "Walk" to "Idle". 
-    
-    e. Configure the transition rules based on your desired conditions. For example, you might want to trigger the transition from "Idle" to "Jump" when the character jumps, and from "Jump" to "Idle" when the jump animation is finished. 
+8. For emissive you need to multiply the constant vector 4 and constant and apply it to
+emissive colour.
 
-9. Create a Anim Montage in Animation Folder To Manage the montages of the animations.
+9. For creating walls and gate you need to create a material and import a png image.
 
-10. Connect the animation blueprint to the character blueprint: To connect the animation blueprint to the character blueprint and enable the animations in the game, follow these steps:
-    a. Open the character blueprint associated with the third person character. 
-    
-    b. In the Viewport tab of the Blueprint Editor, select the mesh component of the character.
-    
-    c. In the Details panel, under the Animation category, find the Animation Blueprint property. 
-    
-    d. Click on the dropdown menu and select the animation blueprint you created. 
+10. And use the png image as texture sample and connect the (rgb) of texture sample to
+the emissive colour & connect the alpha value of texture sample to the opacity.
 
-11. Test the character: Compile and save all the changes in the blueprints and animations. Now, you can test the character's jump, walk, and idle animations by clicking the Play button in the Unreal Editor.
+11. The save it, go to the third person example map and create a plane or cube apply the
+material which you have created for the wall or gate.
 
 ## OUTPUT:
 
-### ANIMATIONS:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/b158a3fe-3240-4924-b60d-dad143bcba8e)
-
-### STATE MACHINES:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/c0aef584-f0d0-412e-8146-39f81157601d)
+### BASIC COLOUR:
+![image](https://github.com/anithapalani2123/GAME-PROGRAMMING-EXP1/assets/94184990/4187dc78-b677-467e-9b88-df876da31f59)
 
 
-### STATE DIAGRAM:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/64df2671-740a-4ef5-b402-3b827876310b)
+### METALLIC TEXTURE:
+![image](https://github.com/anithapalani2123/GAME-PROGRAMMING-EXP1/assets/94184990/05cad93a-4068-4837-ae39-e1a919d03fc1)
 
 
-### VARIABLES:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/46ce9822-7e6f-40b4-921d-3fb2707f703f)
 
+### EMISSIVE TEXTURE:
 
-### IDLE TO WALK:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7a8bbd64-ab15-445f-9280-e6155633f830)
+![image](https://github.com/anithapalani2123/GAME-PROGRAMMING-EXP1/assets/94184990/4161d296-3ac2-40be-9330-aee0935b55db)
 
-### WALK TO IDLE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a46cbe0c-6ff6-4180-a4fe-b6f7387fc4c6)
+### ROUGHNESS:
 
+![image](https://github.com/anithapalani2123/GAME-PROGRAMMING-EXP1/assets/94184990/68ae34ee-9bc2-40c0-b5ae-d8afddd1445d)
 
-### WALK TO JUMP:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7096c02a-a7ed-4953-b2ba-2bfe2247cc9d)
-
-### JUMP TO WALK:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/e27b4477-8010-40ce-8dac-764bc8663fa5)
-
-### JUMP TO IDLE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/ea71effd-b0f8-4106-8aab-8e294733e869)
-
-### IDLE TO JUMP:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/47c81fbe-4bbd-45dd-88eb-7f7f07cda437)
-
-### ANIMATION BLUEPRINT:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/743d99c0-7034-450b-bced-75fc9bc60211)
-
-### ANIM MONTAGE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a6f7ef63-ec7c-4204-8ab6-ba9d33d9e705)
-
-### THIRD PERSON BLUEPRINT:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/3c670727-d315-422f-82db-0158cbc04960)
 
 ## RESULT:
 
-The third person character mesh has been successfully changed using animations.
+Thus, various effects in material properties is successfully implemented in Unreal Engine.
